@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小顾同学</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://gmjgorilla.github.io/"/>
+  <updated>2019-09-03T06:35:08.271Z</updated>
+  <id>https://gmjgorilla.github.io/</id>
+  
+  <author>
+    <name>GORILLA</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell基础命令</title>
+    <link href="https://gmjgorilla.github.io/uncategorized/shell%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/"/>
+    <id>https://gmjgorilla.github.io/uncategorized/shell基础命令/</id>
+    <published>2019-09-03T06:33:12.000Z</published>
+    <updated>2019-09-03T06:35:08.271Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="shell基本格式"><a href="#shell基本格式" class="headerlink" title="shell基本格式"></a>shell基本格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo “hello world!”</span><br></pre></td></tr></table></figure><h2 id="shell执行方式"><a href="#shell执行方式" class="headerlink" title="shell执行方式"></a>shell执行方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master ~]# sh helloworld.sh</span><br><span class="line">[root@master ~]# source helloworld.sh</span><br><span class="line">[root@master ~]# . helloworld.sh</span><br></pre></td></tr></table></figure><h2 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h2><p><img src="https://upload-images.jianshu.io/upload_images/9078227-a5baf36144fd0f08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="alias使用"></p><p>删除别名<br><img src="https://upload-images.jianshu.io/upload_images/9078227-e0a14cb8b4266c5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="unalias"></p><h2 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h2><p>|</p><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p> 管道操作符号“|”<br> 将左侧的命令输出结果，作为右侧命令的处理对象</p><h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p> cmd1  |  cmd2  [… | cmdn]</p><h3 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h3><p> [root@master ~]# cat test.txt | wc -l</p><h1 id="shell基本语法"><a href="#shell基本语法" class="headerlink" title="shell基本语法"></a>shell基本语法</h1><p>Linux Shell中的变量分为“系统变量”和“用户自定义变量”，可以通过set命令查看那系统变量</p><p><strong>系统变量</strong>：$HOME、$PWD、$SHELL、$USER等等</p><p>显示当前shell中所有变量  :    set</p><p><strong>自定义变量</strong><br> 格式：变量名=变量值</p><h2 id="read"><a href="#read" class="headerlink" title="read"></a>read</h2><p>read -p(提示语句)-n(字符个数) -t(等待时间)<br>    read -p “please input your name: “ NAME</p><h2 id="将命令的返回值赋给变量"><a href="#将命令的返回值赋给变量" class="headerlink" title="将命令的返回值赋给变量"></a>将命令的返回值赋给变量</h2><p>A=<code>ls -la</code> 反引号，运行里面的命令，并把结果返回给变量A<br>A=$(ls -la) 等价于反引号</p><h2 id="特殊变量"><a href="#特殊变量" class="headerlink" title="特殊变量"></a>特殊变量</h2><p> $#：表示参数的个数，常用于循环</p><p> $*：参数的内容</p><p> $$：当前shell进程的pid值</p><p> $?：前一命令返回的状态值(0为正常)</p><p> $0 表示当前脚本名称</p><p> $1 第一个参数</p><p> $N 第N个参数</p><h2 id="算数运算"><a href="#算数运算" class="headerlink" title="算数运算"></a>算数运算</h2><p>格式：expr  变量1   运算符  变量2  [运算符 变量3] …</p><h2 id="test命令"><a href="#test命令" class="headerlink" title="test命令"></a>test命令</h2><h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>测试特定的表达式是否成立，当条件成立时，测试语句的返回值为0，否则为其他数值</p><h3 id="格式-1"><a href="#格式-1" class="headerlink" title="格式"></a>格式</h3><p> test  条件表达式<br> [  条件表达式  ]</p><p> -d：测试是否为目录（Directory）<br> -e：测试目录或文件是否存在（Exist）<br> -f：测试是否为文件（File）<br> -b:  该文件是否存在且为一个块设备文件<br> -c:  该文件是否存在且为一个字符设备文件</p><h2 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h2><p> 格式：[  操作符  文件或目录  ]<br> 常用的测试操作符<br> -r：测试当前用户是否有权限读取（Read）<br> -w：测试当前用户是否有权限写入（Write）<br> -x：测试当前用户是否有权限执行（eXcute）<br> -u： 测试该文件是否存在且具有suid属性<br> -g： 测试该文件是否存在且具有sgid属性</p><h2 id="数值比较"><a href="#数值比较" class="headerlink" title="数值比较"></a>数值比较</h2><p> 格式：[  整数1  操作符  整数2  ]<br> 常用的测试操作符<br> -eq：等于（Equal）<br> -ne：不等于（Not Equal）<br> -gt：大于（Greater Than）<br> -lt：小于（Lesser Than）<br> -le：小于或等于（Lesser or Equal）<br> -ge：大于或等于（Greater or Equal）</p><h2 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h2><p> 格式<br> [  字符串1  =  字符串2 ]<br> [  字符串1  !=  字符串2 ]<br> [  -z  字符串 ]<br> 常用的测试操作符<br> =：字符串内容相同<br> !=：字符串内容不同，! 号表示相反的意思<br>  -z：字符串内容为空<br> -n： string 判定字符串是否为非空，若string为空字符串，则为false。 注： -n 亦可省略 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;shell基本格式&quot;&gt;&lt;a href=&quot;#shell基本格式&quot; class=&quot;headerlink&quot; title=&quot;shell基本格式&quot;&gt;&lt;/a&gt;shell基本格式&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Linux" scheme="https://gmjgorilla.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://gmjgorilla.github.io/uncategorized/HELLO-WORLD-0/"/>
+    <id>https://gmjgorilla.github.io/uncategorized/HELLO-WORLD-0/</id>
+    <published>2019-09-02T08:06:36.000Z</published>
+    <updated>2019-09-03T06:31:15.701Z</updated>
+    
+    <content type="html"><![CDATA[<p>my name is Mr.GU you can also call me gorilla. </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;my name is Mr.GU you can also call me gorilla. &lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://gmjgorilla.github.io/uncategorized/hello-world/"/>
+    <id>https://gmjgorilla.github.io/uncategorized/hello-world/</id>
+    <published>2019-09-02T07:43:18.868Z</published>
+    <updated>2019-09-02T07:43:18.868Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
