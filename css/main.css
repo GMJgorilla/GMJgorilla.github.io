@@ -1738,10 +1738,21 @@ pre .javascript .function {
 .site-author-image {
   display: block;
   margin: 0 auto;
-  padding: 2px;
-  max-width: 120px;
+  max-width: 96px;
   height: auto;
-  border: 1px solid #eee;
+  border: 2px solid #333;
+  padding: 2px;
+/* start*/
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  box-shadow: inset 0 -1px 0 #333 sf;
+/* end 
+  padding: $site-author-image-padding;
+  max-width: $site-author-image-width;
+  height: $site-author-image-height;
+  border: $site-author-image-border-width solid $site-author-image-border-color;
+  */
 }
 .site-author-name {
   margin: 0;
@@ -1823,7 +1834,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #092e32;
+  background: #991cff;
 }
 .links-of-blogroll {
   font-size: 13px;
